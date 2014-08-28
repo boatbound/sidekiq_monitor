@@ -36,7 +36,6 @@ module Sidekiq
             if !queued_jids.include?(job.jid) && !is_ignored_queue?(job.queue)
               job.update_attributes(
                 finished_at: DateTime.now,
-                status: 'interrupted'
               )
             end
           end
@@ -58,7 +57,6 @@ module Sidekiq
             if !busy_jids.include?(job.jid) && !is_ignored_queue?(job.queue)
               job.update_attributes(
                 finished_at: DateTime.now,
-                status: 'interrupted'
               )
             end
           end

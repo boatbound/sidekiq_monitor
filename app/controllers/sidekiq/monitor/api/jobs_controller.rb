@@ -57,8 +57,8 @@ module Sidekiq
         end
 
         def clean
-          # cleaner = Sidekiq::Monitor::Cleaner.new
-          # cleaner.clean
+          cleaner = Sidekiq::Monitor::Cleaner.new
+          cleaner.clean
           render json: {}, status: :ok
         end
 
